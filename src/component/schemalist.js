@@ -1,12 +1,10 @@
-
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import DropdownButton from "react-bootstrap/DropdownButton";
 // import Dropdown from "react-bootstrap/Dropdown";
 import { Dropdown } from "react-dropdown-now";
 import "react-dropdown-now/style.css";
-
-
-
+import { PageContext } from "../store/context";
+import React from "react";
 // function Dropdown1({ handleSelect }) {
 //   return (
 //     <div className="Dropdown-container">
@@ -28,30 +26,35 @@ import "react-dropdown-now/style.css";
 //   );
 // }
 
-
-function SchemaList() {
-    const options = [
-      { value: "first_name", label: "First Name" },
-      { value: "last_name", label: "Last Name" },
-      { value: "gender", label: "Gender" },
-      { value: "age", label: "Age" },
-      { value: "account_name", label: "Account Name" },
-      { value: "city", label: "City" },
-      { value: "state", label: "State" },
-    ];
+function SchemaList({ value, isDefault = false }) {
+  const options = [
+    // { label: "Add schema to segment", value: "" },
+    { value: "first_name", label: "First Name" },
+    { value: "last_name", label: "Last Name" },
+    { value: "gender", label: "Gender" },
+    { value: "age", label: "Age" },
+    { value: "account_name", label: "Account Name" },
+    { value: "city", label: "City" },
+    { value: "state", label: "State" },
+  ];
+  const { setCurrentSchemaState, currentSchemaState } =
+    React.useContext(PageContext);
+  function onSelectHandler(value) {
+    if (isDefault) {
+      console.log(value);
+      setCurrentSchemaState(value);
+    }
+  }
   return (
     <div>
       <Dropdown
         placeholder="Add schema to segment"
+        className={isDefault ? "defaultDropDown" : "addedDropDown"}
         // options={["First Name", "Last Name", "Gender","Age","Account Name","City","State"]}
         // value={["first_name","last_name","gender","age","account_name","city","state"]}
-         options = {options}
-        onChange={(value) => console.log("change!", value)}
-        onSelect={(value) => console.log("selected!", value)} // always fires once a selection happens even if there is no change
-        onClose={(closedBySelection) =>
-          console.log("closedBySelection?:", closedBySelection)
-        }
-        onOpen={() => console.log("open!")}
+        options={options}
+        onSelect={onSelectHandler} // always fires once a selection happens even if there is no change
+        value={isDefault ? currentSchemaState : value}
       />
       {/* <Selection
         options={["one", "two", "three"]}
@@ -61,8 +64,5 @@ function SchemaList() {
     </div>
   );
 }
-
-
-
 
 export default SchemaList;

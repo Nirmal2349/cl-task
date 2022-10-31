@@ -1,13 +1,12 @@
 import React from "react";
-import SchemaList from "./schemalist";
-
-
+import { PageContext } from "../store/context";
 
 function Newschema() {
+  const { setSchemaList, currentSchemaState, setCurrentSchemaState } =
+    React.useContext(PageContext);
   const addInputbox = () => {
-    const schema_box = document.getElementById("schema_box");
-    schema_box.appendChild(SchemaList);
-    console.log("");
+    setSchemaList((prev) => [...prev, currentSchemaState]);
+    setCurrentSchemaState("");
   };
   return (
     <div>
