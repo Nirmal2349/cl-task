@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hai, click on the button to open the sidebar.</h1>
+      <h1>Hai, click on the button to open the popup</h1>
       <button
         className="openModalBtn"
         onClick={() => {

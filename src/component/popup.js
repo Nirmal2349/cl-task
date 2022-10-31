@@ -4,6 +4,7 @@ import SchemaList from "./schemalist";
 import Newschema from "./newschema";
 import { PageContext } from "../store/context";
 import options from "./options";
+
 function Popup({ setOpenModal }) {
   const { schemaList, setSchemaList, setCurrentSchemaState } =
     React.useContext(PageContext);
