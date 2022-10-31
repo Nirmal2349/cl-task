@@ -5,8 +5,10 @@ function Newschema() {
   const { setSchemaList, currentSchemaState, setCurrentSchemaState } =
     React.useContext(PageContext);
   const addInputbox = () => {
-    setSchemaList((prev) => [...prev, currentSchemaState]);
-    setCurrentSchemaState("");
+    if (currentSchemaState) {
+      setSchemaList((prev) => [...prev, currentSchemaState]);
+      setCurrentSchemaState("");
+    }
   };
   return (
     <div>

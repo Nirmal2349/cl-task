@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export const PageContext = React.createContext({
-  currentSchemaState: [],
-  isActive: "",
+  currentSchemaState: "",
+  schemaList: [],
 });
 
 export const ProviderAPI = (props) => {

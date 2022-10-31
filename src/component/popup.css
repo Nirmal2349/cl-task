@@ -55,29 +55,32 @@
   background-color: cornflowerblue;
   color: white;
   border-radius: 8px;
-padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 #cancelBtn {
   background-color: crimson;
 }
 
-#saveBtn{
-    background-color: rgb(12, 156, 53);
+#saveBtn {
+  background-color: rgb(12, 156, 53);
 }
-.add-new{
-    text-transform: none;
-    background: none;
-    border: none;
-    text-decoration: underline;
-    font-size: medium;
-    color: green;
-    margin: 20px;
+.add-new {
+  text-transform: none;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  font-size: medium;
+  color: green;
+  margin: 20px;
 }
 
-
-#dropdown-menu-align-right{
+#dropdown-menu-align-right {
   background-color: white;
-  color:black;
+  color: black;
   width: 50px;
+}
+
+.dropDown {
+  margin: 10px 20px;
 }
